@@ -73,9 +73,9 @@ html, body {
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: roboto;
   background: #000;
-  color: #bdbdbd;
+  color: #7d7d7d;
 }
 
 .container {
@@ -118,16 +118,17 @@ a, a:visited, a:link {
 }
 
 .primary {
-  font-family: 'Ubuntu', Verdana, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Verdana, Helvetica, Arial, sans-serif;
   vertical-align: middle;
   clear: both;
+  text-align: center;
 }
 
 .bgStatus {
-  float: right;
+  float: none;
   text-align: center;
   white-space: nowrap;
-  padding-right: 20px;
+  vertical-align: middle;
 }
 
 .urgent .bgButton {
@@ -145,8 +146,9 @@ a, a:visited, a:link {
 .bgStatus .currentBG {
   font-size: 120px;
   line-height: 100px;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
   vertical-align: middle;
+  font-weight: bold;
 }
 
 .bgStatus .currentBG.bg-limit, .bgStatus .currentBG.icon-hourglass {
@@ -156,7 +158,7 @@ a, a:visited, a:link {
 .bgStatus .pill.direction {
   font-weight: normal;
   text-decoration: none;
-  font-size: 90px;
+  font-size: 65px;
   line-height: 90px;
   vertical-align: middle;
   border: none;
@@ -165,7 +167,9 @@ a, a:visited, a:link {
 
 .bgStatus .majorPills {
   font-size: 30px;
-  line-height: 34px;
+  /* line-height: 34px; */
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .minorPills {
@@ -185,12 +189,12 @@ a, a:visited, a:link {
 
 .pill {
   white-space: nowrap;
-  border-radius: 5px;
-  border: 2px solid #808080;
-  background: #808080;
+  /* border-radius: 5px; */
+  /* border: 2px solid #808080; */
+  /* background: #808080; */
   display: inline-block;
-  margin-bottom: 4px;
-  padding: 2px 0;
+  /* margin-bottom: 4px; */
+  /* padding: 2px 0; */
 }
 
 .pill em, .pill label {
@@ -203,10 +207,12 @@ a, a:visited, a:link {
   font-weight: bold;
   background: #000;
   border-radius: 3px;
+  color: #fff;
 }
 
 .pill label {
-  color: #000;
+  color: #6d6d6d;
+  font-size: 16px;
 }
 
 .container .pill.warn em {
@@ -233,6 +239,7 @@ a, a:visited, a:link {
 
 .bgStatus.current .currentBG {
   text-decoration: none;
+  padding-right: 16px;
 }
 
 .alarming-timeago .bgStatus.current .currentBG {
@@ -240,43 +247,51 @@ a, a:visited, a:link {
 }
 
 .status {
-  color: #808080;
+  color: #ffffff;
   font-size: 100px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px 0;
 }
 .statusBox {
   text-align: center;
-  width: 250px;
+  width: auto;
 }
 .statusPills {
-  font-size: 20px;
+  font-size: 30px;
   line-height: 23px;
 }
 
+#currentTime {
+  display:none;
+}
 .loading .statusPills {
   display: none;
 }
 
 .statusPills .pill {
-  background: #808080;
-  border-color: #808080;
-  margin-right: 5px;
+  /* background: #808080; */
+  /* border-color: #808080; */
+  /* margin-right: 5px; */
 }
 
 .statusPills .pill em {
-  color: #bdbdbd;
+  color: #ffffff;
 }
 
-#chartContainer {
+ba {
   left: 0;
   right: 0;
   bottom: 0;
   height: auto;
-  font-size: 20px;
-  background: #111;
+  font-size: 14px;
+  background: #000;
   display: block;
   position: absolute;
   margin: 2px;
   overflow: hidden;
+  /* background: red; */
 }
 
 #chartContainer svg {
@@ -375,9 +390,9 @@ a, a:visited, a:link {
   color: #444;
   position: absolute;
   text-align: left;
-  padding: 4px;
+  padding: 12px;
   font-size: 14px;
-  line-height: 15px;
+  line-height: 20px;
   background: white;
   border: 0;
   border-radius: 8px;
@@ -396,26 +411,35 @@ a, a:visited, a:link {
 
 .focus-range {
   list-style: none;
-  margin: 4px;
+  margin: 0 auto;
   padding: 0;
   color: #808080;
-  width: 250px;
+  width: auto;
   text-align: center;
+  display: inline-block;
+  border: 1px solid #2a2a2a;
+  background: #181818;
+  margin-top: 1em;
+  /* width: 100%; */
 }
 
 .focus-range li {
   display: inline-block;
   font-size: 18px;
   white-space: nowrap;
-  border-radius: 5px;
-  border: 2px solid #000;
+  border-radius: 0;
   cursor: pointer;
+  text-transform: lowercase;
+  padding: 15px;
+  margin: 0 10px;
 }
 
 .focus-range .selected {
   border-color: #808080;
-  color: #000;
-  background: #808080;
+  color: #fff;
+  background: none;
+  font-weight: bold;
+  border-bottom: 3px solid #fff;
 }
 
 .pill.hidden {
@@ -433,7 +457,7 @@ a, a:visited, a:link {
 
 @media (max-width: 800px) {
   .bgStatus {
-    width: 300px;
+    /* width: 300px; */
   }
 
   .bgButton {
@@ -470,16 +494,17 @@ a, a:visited, a:link {
   }
 
   .statusPills {
-    font-size: 15px;
+    font-size: 26px;
     line-height: 17px;
   }
-
+/*
   .focus-range {
-    margin: 0;
+    margin: 0 16px;
   }
-
+*/
   .focus-range li {
     font-size: 14px;
+    margin:0;
   }
 
   #silenceBtn a {
@@ -487,14 +512,14 @@ a, a:visited, a:link {
   }
 
   #chartContainer {
-    font-size: 14px;
+    font-size: 10px;
   }
 }
 
 @media (max-width: 750px) {
   .bgStatus {
-    width: 240px;
-    padding: 0 0 20px 0;
+    /* width: 240px; */
+    /* padding: 0 0 20px 0; */
   }
 
   .pill.rawbg em {
@@ -520,7 +545,7 @@ a, a:visited, a:link {
   }
 
   .bgStatus .majorPills {
-    font-size: 15px;
+    font-size: 26px;
     line-height: 17px;
   }
 
@@ -545,7 +570,7 @@ a, a:visited, a:link {
     float: none;
     padding: 0;
     text-align: center;
-    width: 250px;
+    /* width: 250px; */
   }
 
 
@@ -570,7 +595,7 @@ a, a:visited, a:link {
   }
 
   .bgStatus .majorPills {
-    font-size: 15px;
+    font-size: 24px;
     line-height: 17px;
   }
 
@@ -600,40 +625,40 @@ a, a:visited, a:link {
   }
 
   #currentTime {
-    display: inline;
-    vertical-align: middle;
+    /* display: inline; */
+    /* vertical-align: middle; */
   }
 
   .statusPills {
     display: inline;
     margin-left: auto;
-    font-size: 12px;
+    font-size: 24px;
     line-height: 13px;
   }
 
   .focus-range {
-    position: absolute;
-    top: 60px;
-    left: auto;
-    right: 10px;
-    margin: 0;
-    width: auto;
+    /* position: absolute; */
+    /* top: 60px; */
+    /* left: auto; */
+    /* right: 10px; */
+    /* margin: 0; */
+    /* width: auto; */
   }
 
   .focus-range li {
-    display: block;
+    /* display: block; */
   }
 }
 
 @media (max-height: 700px) {
   #chartContainer {
-    font-size: 14px;
+    font-size: 10px;
   }
 }
 
 @media (max-height: 600px) {
   #chartContainer {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -753,4 +778,21 @@ a, a:visited, a:link {
     font-size: 12px;
     line-height: 13px;
   }
+}
+
+line {
+  stroke: #444444;
+  stroke-width:1px;
+}
+.axis path, .axis line {
+    fill: none;
+    stroke: #484848 !important;
+    shape-rendering: crispEdges;
+}
+#toolbar {
+    border-bottom: 0 !important;
+    margin-bottom: 2em !important;
+}
+body {
+    fill: rgba(255, 255, 255, 0.65) !important;
 }
